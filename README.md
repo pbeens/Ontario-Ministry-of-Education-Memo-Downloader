@@ -6,7 +6,7 @@ Why did I write this? Mostly because some governments come in and make history d
 
 ## How it Works
 
-This utility downloads all the memos (assumed to be in PDF format) from https://efis.fma.csc.gov.on.ca/faab/Memos.htm.
+This utility downloads all the memos from https://efis.fma.csc.gov.on.ca/faab/Memos.htm.
 It first finds all the "B" and "SB" page links, then goes into these pages and finds all the memos (assumed to be PDFs) and downloads them into the `memos`. It also saves a list of all the memos in `memos.csv`. This file lists the URL (web address) and document name for each memo. It can be loaded into Excel or uploaded to Google Sheets for viewing.
 
 To speed things up, the program skips any files that are already downloaded.
