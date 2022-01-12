@@ -11,4 +11,6 @@ It first finds all the "B" and "SB" page links, then goes into these pages and f
 
 To speed things up, the program skips any files that are already downloaded.
 
+If you wish to try this program yourself, you'll first have to download Python from https://www.python.org/. Then click on the green Code button (assuming you are viewing this on GitHub) and then click `Download Zip`.
+
 If you spot any mistakes or the program ever breaks, feel free to reach out to me via [Twitter](https://twitter.com/pbeens). I'd also love to hear if you find it useful!
