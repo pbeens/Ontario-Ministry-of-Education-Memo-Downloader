@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 Ontario Ministry of Education Memo Downloader
+
+TODO: Add Markdown file for each Year folder with a list of the memos, hyperlinked to each document.
+
 """
 
 #
