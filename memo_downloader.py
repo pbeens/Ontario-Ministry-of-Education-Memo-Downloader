@@ -56,15 +56,14 @@ print(f'  Found {len(pdf_dict)} PDF files.')
 
 # 3. Load existing memos from CSV (normalize keys)
 existing_memos = {}
-if os.path.exists('memos.csv'):
-    with open('memos.csv', 'r', encoding='cp1252') as f:
-        reader = csv.reader(f)
-        for row in reader:
-            if not row:
-                continue
-            raw, title = row[0], row[1]
-            norm = normalize_url(raw, base=url_base)
-            existing_memos[norm] = title
+with open('memos.csv', 'r', encoding='utf-8', errors='replace') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    for row in csv_reader:
+        if len(row) < 2:
+            continue
+        url, title = row[0], row[1]
+        existing_memos[url] = title
+
 print(f'Loaded {len(existing_memos)} existing memos from CSV.')
 
 # 4. Prepare CSV writer for appending new entries
