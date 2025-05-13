@@ -1,121 +1,114 @@
-import re  # for collapsing duplicate slashes
-from bs4 import BeautifulSoup
-import urllib.request
-from urllib.parse import urlparse, urljoin
+#!/usr/bin/env python3
+"""
+Ontario Ministry of Education Memo Downloader
+"""
+
+import re
 import os
 import csv
+import urllib.request
+from urllib.parse import urljoin, urlparse
+from bs4 import BeautifulSoup
 
-# Base URL for all memos
-def normalize_url(raw_url: str, base: str = 'https://efis.fma.csc.gov.on.ca/faab/') -> str:
-    """
-    Normalize a raw memo URL by collapsing internal duplicate slashes and
-    joining with the base to ensure a single canonical form.
-    """
-    # Parse the URL to extract path
-    parsed = urlparse(raw_url)
-    # Collapse any sequence of slashes into a single slash
-    clean_path = re.sub(r'/+', '/', parsed.path)
-    # Remove leading slash to make it relative for urljoin
-    relative = clean_path.lstrip('/')
-    # Join with base and return
-    return urljoin(base, relative)
+INDEX_URL = 'https://efis.fma.csc.gov.on.ca/faab/Memos.htm'
+URL_BASE  = 'https://efis.fma.csc.gov.on.ca/faab/'
 
-url_index = 'https://efis.fma.csc.gov.on.ca/faab/Memos.htm'
-url_base = 'https://efis.fma.csc.gov.on.ca/faab/'
+def collapse(path):
+    return re.sub(r'/+', '/', path)
 
-# 1. Scrape memo category links
-print(f'Finding memo category links in {url_index}...')
-page = urllib.request.urlopen(url_index)
+def normalize_url(raw, base=URL_BASE):
+    href = raw.replace(' ', '%20')
+    path = urlparse(href).path
+    clean = collapse(path)
+    return urljoin(base, clean.lstrip('/'))
+
+# 1) SCRAPE ALL PDF URLs + raw titles
+print("⏳ Scraping memo categories…")
+page = urllib.request.urlopen(INDEX_URL)
 soup = BeautifulSoup(page, 'html.parser')
 
-memo_category_list = []
-for link in soup.find_all('a', href=True):
-    href = link['href']
-    if href.startswith('B_Memos') or href.startswith('SB_Memos'):
-        memo_category_list.append(href)
-print(f'  Found {len(memo_category_list)} categories.')
+cats = [a['href'] for a in soup.find_all('a', href=True)
+        if a['href'].startswith(('B_Memos','SB_Memos'))]
 
-# 2. Scrape all PDF links into a dict: { normalized_pdf_url: title }
-pdf_dict = {}
-print('Getting memo links...')
-for category in memo_category_list:
-    page_url = urljoin(url_base, category)
-    print('  Scraping category:', category)
-    page = urllib.request.urlopen(page_url)
-    soup = BeautifulSoup(page, 'html.parser')
-    for a in soup.find_all('a', href=True):
-        raw_href = a['href'].replace(' ', '%20')
-        if 'pdf' not in raw_href.lower():
-            continue
-        title = ' '.join(a.get_text(strip=True).split())
-        if not title:
-            title = raw_href
-        pdf_url = normalize_url(raw_href, base=url_base)
-        pdf_dict[pdf_url] = title
-print(f'  Found {len(pdf_dict)} PDF files.')
+pdf_links = {}
+for cat in cats:
+    cat_url = normalize_url(cat)
+    sub_page = urllib.request.urlopen(cat_url)
+    sub_soup = BeautifulSoup(sub_page, 'html.parser')
+    for a in sub_soup.find_all('a', href=True):
+        href = a['href']
+        if href.lower().endswith('.pdf'):
+            full = normalize_url(href, base=cat_url)
+            raw_text = ' '.join(a.text.split())
+            pdf_links[full] = raw_text
 
-# 3. Load existing memos from CSV (normalize keys)
-existing_memos = {}
-with open('memos.csv', 'r', encoding='utf-8', errors='replace') as csv_file:
-    csv_reader = csv.reader(csv_file, delimiter=',')
-    for row in csv_reader:
-        if len(row) < 2:
-            continue
-        url, title = row[0], row[1]
-        existing_memos[url] = title
+print(f"✅ Found {len(pdf_links)} PDF links.\n")
 
-print(f'Loaded {len(existing_memos)} existing memos from CSV.')
+# 2) LOAD YOUR EXISTING CSV MAPPING (filename → title)
+csv_map = {}
+if os.path.exists('memos.csv'):
+    with open('memos.csv', newline='', encoding='utf-8', errors='replace') as f:
+        reader = csv.reader(f)
+        for url, title in reader:
+            if url.lower().startswith('url'):  # skip header row
+                continue
+            fn = os.path.basename(urlparse(url).path)
+            csv_map[fn] = title
 
-# 4. Prepare CSV writer for appending new entries
-df_handle = open('memos.csv', 'a', newline='', encoding='utf-8')
-writer = csv.writer(df_handle, quoting=csv.QUOTE_ALL)
+# 3) OPEN CSV FOR APPENDING NEW ENTRIES
+out_csv = open('memos.csv', 'a', newline='', encoding='utf-8')
+writer  = csv.writer(out_csv, quoting=csv.QUOTE_ALL)
 
-# 5. Download and group memos by exact subfolder
-memos_by_folder = {}
-save_root = 'memos'
-os.makedirs(save_root, exist_ok=True)
+# 4) DOWNLOAD & BUCKET BY SUBFOLDER, APPEND NEW TO CSV
+by_folder = {}
+total = len(pdf_links)
+for i, (url, raw_title) in enumerate(pdf_links.items(), 1):
+    fn = os.path.basename(urlparse(url).path)
+    folder = os.path.basename(os.path.dirname(urlparse(url).path))
+    local_dir = os.path.join('memos', folder)
+    os.makedirs(local_dir, exist_ok=True)
+    local_path = os.path.join(local_dir, fn)
 
-for count, (pdf_url, title) in enumerate(pdf_dict.items(), start=1):
-    # Extract subfolder and filename
-    parts = urlparse(pdf_url).path.split('/')
-    memo_folder = parts[-2]
-    filename = parts[-1]
-
-    # Write to CSV if new
-    if pdf_url not in existing_memos:
-        writer.writerow([pdf_url, title])
-        print(f'  [CSV] Added: {pdf_url}')
-
-    # Ensure local folder exists
-    folder_path = os.path.join(save_root, memo_folder)
-    os.makedirs(folder_path, exist_ok=True)
-    local_path = os.path.join(folder_path, filename)
-
-    # Download PDF if missing
-    if not os.path.isfile(local_path):
-        try:
-            urllib.request.urlretrieve(pdf_url, local_path)
-            print(f'  [Download] {count}/{len(pdf_dict)}: {filename}')
-        except Exception as e:
-            print(f'  [Error] Failed to download {pdf_url}: {e}')
+    # Decide on the “official” title:
+    if fn in csv_map:
+        title = csv_map[fn]
     else:
-        print(f'  [Skip] Already exists: {filename}')
+        # if scraped text is too short (e.g. “r”), fall back to filename
+        if len(raw_title) < 3:
+            title = fn.replace('_', ' ').replace('.pdf','')
+        else:
+            title = raw_title
+        # record the new URL+title in your CSV
+        writer.writerow([url, title])
+        print(f"[CSV+] {fn}")
+        csv_map[fn] = title
 
-    # Group by exact folder
-    memos_by_folder.setdefault(memo_folder, []).append((title, filename))
+    # download
+    if not os.path.exists(local_path):
+        try:
+            urllib.request.urlretrieve(url, local_path)
+            status = 'dl'
+        except Exception as e:
+            status = 'ERR'
+        print(f"[{i}/{total}] {status:3} {folder}/{fn}")
+    else:
+        print(f"[{i}/{total}] ok  {folder}/{fn}")
 
-# Close CSV
-df_handle.close()
+    by_folder.setdefault(folder, []).append((fn, title))
 
-# 6. Generate README.md per exact subfolder
-print('Creating README.md files...')
-for folder, items in memos_by_folder.items():
-    readme_path = os.path.join(save_root, folder, 'README.md')
-    with open(readme_path, 'w', encoding='utf-8') as md:
-        md.write(f'# Memos in {folder}\n\n')
-        md.write('Below is the list of memos in this folder:\n\n')
-        for title, filename in items:
-            md.write(f'- [{title}](./{filename})\n')
-    print(f'  Created {readme_path}')
+out_csv.close()
 
-print('Done.')
+# 5) REWRITE README.md PER EXACT SUBFOLDER
+def natural_key(s):
+    parts = re.split(r'(\d+)', s)
+    return [int(p) if p.isdigit() else p.lower() for p in parts]
+
+for folder, items in by_folder.items():
+    items.sort(key=lambda ft: natural_key(ft[0]))
+    readme = os.path.join('memos', folder, 'README.md')
+    with open(readme, 'w', encoding='utf-8') as md:
+        md.write(f"# Memos in {folder}\n\n")
+        md.write("Available memos:\n\n")
+        for fn, title in items:
+            md.write(f"- [{title}](./{fn})\n")
+    print(f"📝  Updated README for {folder}")
