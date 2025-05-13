@@ -1,146 +1,122 @@
-"""
-Ontario Ministry of Education Memo Downloader
-"""
-
-import re  # for extracting years from folder names
+import re  # for collapsing duplicate slashes
 from bs4 import BeautifulSoup
 import urllib.request
-from urllib.parse import urljoin
-import urllib
+from urllib.parse import urlparse, urljoin
 import os
 import csv
 
-url = 'https://efis.fma.csc.gov.on.ca/faab/Memos.htm'
+# Base URL for all memos
+def normalize_url(raw_url: str, base: str = 'https://efis.fma.csc.gov.on.ca/faab/') -> str:
+    """
+    Normalize a raw memo URL by collapsing internal duplicate slashes and
+    joining with the base to ensure a single canonical form.
+    """
+    # Parse the URL to extract path
+    parsed = urlparse(raw_url)
+    # Collapse any sequence of slashes into a single slash
+    clean_path = re.sub(r'/+', '/', parsed.path)
+    # Remove leading slash to make it relative for urljoin
+    relative = clean_path.lstrip('/')
+    # Join with base and return
+    return urljoin(base, relative)
 
-# Grab the memo page from the website
-page = urllib.request.urlopen(url)
-soup = BeautifulSoup(page, "html.parser")
-
-# Grab the links to each memo folder (B_Memos and SB_Memos)
-memo_category_list = []
-print(f'Finding memo category links in {url}...')
-
-for link in soup.findAll('a', href=True):
-    if (link['href'].startswith('B_Memos')) or (link['href'].startswith('SB_Memos')):
-        memo_category_list.append(link['href'])
-
-print('Memo category links found...')
-
-pdf_dict = {}
+url_index = 'https://efis.fma.csc.gov.on.ca/faab/Memos.htm'
 url_base = 'https://efis.fma.csc.gov.on.ca/faab/'
 
+# 1. Scrape memo category links
+print(f'Finding memo category links in {url_index}...')
+page = urllib.request.urlopen(url_index)
+soup = BeautifulSoup(page, 'html.parser')
+
+memo_category_list = []
+for link in soup.find_all('a', href=True):
+    href = link['href']
+    if href.startswith('B_Memos') or href.startswith('SB_Memos'):
+        memo_category_list.append(href)
+print(f'  Found {len(memo_category_list)} categories.')
+
+# 2. Scrape all PDF links into a dict: { normalized_pdf_url: title }
+pdf_dict = {}
 print('Getting memo links...')
-for link in memo_category_list:
-    page_url = url_base + link
+for category in memo_category_list:
+    page_url = urljoin(url_base, category)
+    print('  Scraping category:', category)
     page = urllib.request.urlopen(page_url)
-    soup = BeautifulSoup(page, "html.parser")
-    print('Getting memo links from', link)
-    for pdf_link in soup.findAll('a', href=True):
-        url_url = pdf_link.get("href").replace(' ', '%20')  # handle spaces
-        url_text = ' '.join(pdf_link.text.split())          # normalize spacing
-        if len(url_text) < 2:  # catch the URLs with no text
-            url_text = url_url
-        if 'pdf' in url_url.lower():  # only PDF files
-            pdf_url = urljoin(url_base, url_url)
-            pdf_dict[pdf_url] = url_text
+    soup = BeautifulSoup(page, 'html.parser')
+    for a in soup.find_all('a', href=True):
+        raw_href = a['href'].replace(' ', '%20')
+        if 'pdf' not in raw_href.lower():
+            continue
+        title = ' '.join(a.get_text(strip=True).split())
+        if not title:
+            title = raw_href
+        pdf_url = normalize_url(raw_href, base=url_base)
+        pdf_dict[pdf_url] = title
+print(f'  Found {len(pdf_dict)} PDF files.')
 
-# Read in existing memos from CSV
+# 3. Load existing memos from CSV (normalize keys)
 existing_memos = {}
-with open('memos.csv', 'r', encoding='cp1252') as csv_file:
-    csv_reader = csv.reader(csv_file, delimiter=',')
-    for row in csv_reader:
-        url = row[0]
-        title = row[1]
-        existing_memos[url] = title
+if os.path.exists('memos.csv'):
+    with open('memos.csv', 'r', encoding='cp1252') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            if not row:
+                continue
+            raw, title = row[0], row[1]
+            norm = normalize_url(raw, base=url_base)
+            existing_memos[norm] = title
+print(f'Loaded {len(existing_memos)} existing memos from CSV.')
 
-# Prepare to append new rows to memos.csv
-csv_file = open('memos.csv', mode='a', newline='', encoding='utf-8')
-memo_writer = csv.writer(csv_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
+# 4. Prepare CSV writer for appending new entries
+df_handle = open('memos.csv', 'a', newline='', encoding='utf-8')
+writer = csv.writer(df_handle, quoting=csv.QUOTE_ALL)
 
-# Dictionary to store memos grouped by year
-# Key: year (e.g., "2012"), Value: list of tuples [(memo_title, filename), ...]
-memos_by_year = {}
+# 5. Download and group memos by exact subfolder
+memos_by_folder = {}
+save_root = 'memos'
+os.makedirs(save_root, exist_ok=True)
 
-num_pdfs = len(pdf_dict)
-count = 1
+for count, (pdf_url, title) in enumerate(pdf_dict.items(), start=1):
+    # Extract subfolder and filename
+    parts = urlparse(pdf_url).path.split('/')
+    memo_folder = parts[-2]
+    filename = parts[-1]
 
-for k, v in pdf_dict.items():
-    # example of k: https://efis.fma.csc.gov.on.ca/faab/B_Memos/B2012/B12_EN.pdf
-    memo_folder = k.split('/')[-2]  # e.g., B2012
-    filename = k.split('/')[-1]     # e.g., B12_EN.pdf
+    # Write to CSV if new
+    if pdf_url not in existing_memos:
+        writer.writerow([pdf_url, title])
+        print(f'  [CSV] Added: {pdf_url}')
 
-    # create memos/B2012 if it doesn't exist
-    save_dir = 'memos'
-    save_path = os.path.join(save_dir, memo_folder)
-    os.makedirs(save_path, exist_ok=True)
+    # Ensure local folder exists
+    folder_path = os.path.join(save_root, memo_folder)
+    os.makedirs(folder_path, exist_ok=True)
+    local_path = os.path.join(folder_path, filename)
 
-    # local path with filename
-    path_with_filename = os.path.join(save_path, filename)
-
-    # write to CSV if this memo doesn't already exist
-    if k not in existing_memos:
-        memo_writer.writerow([k, v])
-        print(f'{k} added to CSV')
-
-    # download PDF if it doesn't already exist locally
-    if not os.path.isfile(path_with_filename):
+    # Download PDF if missing
+    if not os.path.isfile(local_path):
         try:
-            urllib.request.urlretrieve(k, path_with_filename)
-            print(f'{count}/{num_pdfs}')
-        except:
-            print(f'{count}/{num_pdfs} >>> Error {k} not downloaded')
+            urllib.request.urlretrieve(pdf_url, local_path)
+            print(f'  [Download] {count}/{len(pdf_dict)}: {filename}')
+        except Exception as e:
+            print(f'  [Error] Failed to download {pdf_url}: {e}')
     else:
-        print(f'{count}/{num_pdfs} >>> Already exists {path_with_filename}')
-    count += 1
+        print(f'  [Skip] Already exists: {filename}')
 
-    # Extract year (e.g., from "B2012" or "SB2013")
-    # We'll look for a 4-digit year anywhere in the folder name
-    match = re.search(r'(\d{4})', memo_folder)
-    if match:
-        year = match.group(1)
-    else:
-        # If no 4-digit year is found, you can decide how to handle it
-        year = memo_folder  # fallback or custom handling
+    # Group by exact folder
+    memos_by_folder.setdefault(memo_folder, []).append((title, filename))
 
-    # Collect memo info by year
-    if year not in memos_by_year:
-        memos_by_year[year] = []
-    memos_by_year[year].append((v, filename))
+# Close CSV
+df_handle.close()
 
-csv_file.close()
+# 6. Generate README.md per exact subfolder
+print('Creating README.md files...')
+for folder, items in memos_by_folder.items():
+    readme_path = os.path.join(save_root, folder, 'README.md')
+    with open(readme_path, 'w', encoding='utf-8') as md:
+        md.write(f'# Memos in {folder}\n\n')
+        md.write('Below is the list of memos in this folder:\n\n')
+        for title, filename in items:
+            md.write(f'- [{title}](./{filename})\n')
+    print(f'  Created {readme_path}')
 
-# Create Markdown file in each year’s folder
-for year, memo_list in memos_by_year.items():
-    # For each year, we assume they are inside subfolders like memos/B2012, memos/SB2012, etc.
-    # We can have multiple folders with the same year, so let's handle them carefully:
-    # We could create only one .md file per exact subfolder, or unify all "2012" memos in one place.
-    #
-    # In this example, we unify them by year in a single folder. If you prefer per subfolder
-    # (B2012, SB2012), adjust accordingly.
-    
-    # We'll assume the folder is in "memos" + "Byyyy" or "SByyyy"
-    # So let's guess a path:
-    folder_path = os.path.join('memos')  
-    # to store them in a single year-labeled folder, you could do:
-    # folder_path = os.path.join('memos', year)
-    # but that might differ from how you've structured it above.
-    #
-    # Instead, we find all subfolders that match that year’s pattern:
-    possible_folders = []
-    for f in os.listdir(folder_path):
-        # Check if f has the same 4-digit year
-        if re.search(rf'{year}', f):
-            possible_folders.append(f)
-
-    # For each subfolder that corresponds to the year, write a README.md
-    for f in possible_folders:
-        subfolder_path = os.path.join(folder_path, f)
-        md_path = os.path.join(subfolder_path, 'README.md')
-        with open(md_path, 'w', encoding='utf-8') as md_file:
-            md_file.write(f"# Memos for {f}\n\n")
-            md_file.write("Below is a list of memos available in this folder:\n\n")
-            for memo_title, memo_filename in memo_list:
-                # Construct a relative link to the PDF in the same folder:
-                link = f"./{memo_filename}"
-                md_file.write(f"- [{memo_title}]({link})\n")
-        print(f"Markdown file created at {md_path}")
+print('Done.')
