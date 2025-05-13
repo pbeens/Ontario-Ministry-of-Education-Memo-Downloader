@@ -1,6 +1,6 @@
-# Memos for B2013
+# Memos in B2013
 
-Below is a list of memos available in this folder:
+Below is the list of memos in this folder:
 
 - [Education Programs - Other (EPO)](./B23_EN_AODA.pdf)
 - [Appendix](./2013-B23E%20Appendix_AODA.pdf)
@@ -18,18 +18,18 @@ Below is a list of memos available in this folder:
 - [Implications of the 2013 MOU with CUPE](./B11_EN_AODA.pdf)
 - [Systems Support to Implement Labour Framework Reforms](./B10_EN_AODA.pdf)
 - [Implications of the MOU with OSSTF](./B9_EN_AODA.pdf)
-- [Update to the Capital Funding Policy to Replace Child Care Spaces in Replacement Schools](./B8_EN_AODA.pdf)
+- [Update to the Capital Funding Policy to Replace Child CareSpaces in Replacement Schools](./B8_EN_AODA.pdf)
 - [Changes to the Requirements for the Wind-up Payments for Non-vested Retirement Gratuities](./B7_EN_AODA.pdf)
 - [2013-14 Funding in addition to Grants for Student Needs](./B6_EN_AODA.pdf)
 - [Grants for Student Needs Funding and Regulations](./B5_EN_AODA.pdf)
-- [2013 Proportions of Enrolment for purposes of Education Act, subsections 238(2) and 257.8(3)](./B4_EN_AODA.pdf)
+- [2013 Proportions of Enrolment for purposes ofEducation Act, subsections 238(2) and 257.8(3)](./B4_EN_AODA.pdf)
 - [Table A](./2013-B04E%20-%20Attach_AODA.pdf)
 - [Implications of the MOU with CUPE and Further Technical Clarifications](./B3_EN_AODA.pdf)
 - [O Reg 11-13 Sick Leave Credit](./2013_B3E%20-%20Attach_1_AODA.pdf)
 - [Memos/B2013/2013_B3E%20-%20Attach_2.pdf](./2013_B3E%20-%20Attach_2.pdf)
 - [O Reg 12-13 General](./2013_B3E%20-%20Attach_2_AODA.pdf)
 - [Technical Clarifications to the Memoranda of Understanding](./B2_EN_AODA.pdf)
-- [Ontario Regulation 1/13 Sick Leave Credits and Sick Leave Credit Gratuities](./2013-B2E%20-%20Attach%201_AODA.pdf)
+- [Ontario Regulation 1/13Sick Leave Credits and SickLeave Credit Gratuities](./2013-B2E%20-%20Attach%201_AODA.pdf)
 - [Ontario Regulation 2/13 General](./2013-B2E%20-%20Attach%202_AODA.pdf)
-- [Ontario Regulation 3/13 Amending O. Reg. 313/12 (SICK LEAVE PROVISIONS, 2012-2013)](./2013-B2E%20-%20Attach%203_AODA.pdf)
+- [Ontario Regulation 3/13 Amending O. Reg. 313/12(SICK LEAVE PROVISIONS, 2012-2013)](./2013-B2E%20-%20Attach%203_AODA.pdf)
 - [Enhancements to the Memoranda of Understanding](./B1_EN_AODA.pdf)

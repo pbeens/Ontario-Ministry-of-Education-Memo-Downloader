@@ -1,32 +1,8 @@
-# Memos for SB2016
+# Memos in SB2016
 
-Below is a list of memos available in this folder:
+Below is the list of memos in this folder:
 
 - [Employee Life and Health Trusts – Implementation Engagement and Supports](./SB39_EN.pdf)
-- [In-year amendments to education funding regulations for 2011-12, 2012-13, 2013-14, 2014-15, 2015-16 and 2016-17 school years](./B20_EN_AODA.PDF)
-- [Request for School Consolidation Capital Funding Submissions](./B19_EN_AODA.pdf)
-- [Community Hubs Capital Funding: Minor Retrofits and Accessibility](./B18_EN.pdf)
-- [Joint-Use Schools Seed Funding Program](./B17_EN_AODA.pdf)
-- [GSN Update in Support of Transition to Employee Life and Health Trusts (ELHT)](./B16_EN_AODA.pdf)
-- [School Facility Condition Assessment Data: 2011-15 Assessment Cycle](./B15_EN_AODA.pdf)
-- [Technical Paper – School Facility Condition Assessment Data](./B15_ATTACH_EN_AODA.pdf)
-- [In-Year Amendments to the 2011-12, 2012-13, 2013-14, 2014-15, 2015-16 and 2016-17 Grants for Student Needs Funding Regulations](./B14_EN_AODA.pdf)
-- [New Renewal Funding to Keep Schools in a State of Good Repair](./B13_EN_AODA.pdf)
-- [1. Grants for Student Needs Funding Regulations for2016–17 2. Fees For Central Bargaining for the 2016-2017 SchoolBoard Fiscal Year Regulation](./B12_EN.pdf)
-- [Request for Capital Project Funding Submissions](./B11_EN.pdf)
-- [Appendix G: Joint Submission - Capital Funding for Child Care and Child and Family Support Programs (template)](./B11_EN_attach.pdf)
-- [Increasing Consistency Amongst Regional Internal Audit Teams](./B10_EN.pdf)
-- [Ministry of Education Initiatives to Support Community Hubs in Schools](./B9_EN.pdf)
-- [2016 Proportions of Enrolment for purposes of Education Act, subsections 238(2) and 257.8(3)](./B8_EN.pdf)
-- [Table A](./B8_EN_attach.pdf)
-- [2016-17 School Year Education Programs - Other (EPO) Funding](./B7_EN.pdf)
-- [Grants for Student Needs changes for 2015�16 and 2016�17](./B6_EN.pdf)
-- [In-year amendments to education funding regulations for 2010-11, 2011-12, 2012-13, 2013-14, 2014-15 and 2015-16 school years](./B5_EN.pdf)
-- [Capital Planning Capacity Program 2015-16 and 2016-17](./B4_EN_REV.pdf)
-- [Compensation Framework for non-unionized school board staff that are not at the executive level](./B3_EN.pdf)
-- [Syrian Newcomer Settlement in Ontario � Financial Reporting Requirements for Funding Purposes](./B2_EN.pdf)
-- [Guide to Pupil Accommodation Reviews](./B1_EN.pdf)
-- [Guide to Pupil Accommodation Reviews](./B1_EN_attach.pdf)
 - [Leading Practice Repository Pilot](./SB38_EN.pdf)
 - [2015-16 Financial Statements Forms for School Authorities (Isolate Boards)](./SB37_EN.pdf)
 - [Guide to Completing the Financial Statements Forms](./SB37_Attach_1.pdf)
@@ -35,7 +11,7 @@ Below is a list of memos available in this folder:
 - [Data Extract Tool for EFIS Data](./SB34_EN.pdf)
 - [OASBO Best Practice Guide & Toolkit - Facilitation Skills to Encourage Community Involvement](./SB33_EN_AODA.pdf)
 - [“Best Practice Guide & Toolkit – Facilitation Skills to Encourage Community Involvement”](./SB33_EN_AODA_Attach.pdf)
-- [Release of the Updated Capital Analysis and Planning Template and Information on the March 2017 Long- Term Financing of Ministry-Supported Not Permanently Financed Capital Debt](./SB32_EN_AODA.pdf)
+- [Release of the Updated Capital Analysis and PlanningTemplate and Information on the March 2017 Long-Term Financing of Ministry-Supported NotPermanently Financed Capital Debt](./SB32_EN_AODA.pdf)
 - [Update on Regional Internal Audit Consistency Measures](./SB31_EN_AODA.pdf)
 - [Update on Transition to Employee Life and Health Trusts (ELHT) - Waves 2 and 3](./SB30_EN_AODA.pdf)
 - [Process Improvements to Surplus Property Circulation for School Boards](./SB29_EN_AODA.pdf)

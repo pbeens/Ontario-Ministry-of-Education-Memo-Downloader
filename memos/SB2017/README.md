@@ -1,27 +1,7 @@
-# Memos for SB2017
+# Memos in SB2017
 
-Below is a list of memos available in this folder:
+Below is the list of memos in this folder:
 
-- [School Bus Driver Retention Bonus Program](./B16_EN.pdf)
-- [New Vision for Student Transportation - Discussion Paper Release](./B15_EN.pdf)
-- [Executive Compensation - Next Steps for Proposed School Board Executive Compensation Programs](./B14_EN.pdf)
-- [Executive Compensation - School Board Program Submission Update](./B13_EN.pdf)
-- [Reverse Education Service Agreements](./B12_EN.PDF)
-- [Executive Compensation - Technical Information to Support School Board Program Implementation](./B11_EN.pdf)
-- [Updates on the Approach to Broader Public Sector Executive Compensation](./B11_Attach_EN.pdf)
-- [Salary and Performance-Related Pay - Reporting Template](./B11_Attach%20EN%202.pdf)
-- [1.Grants for Student Needs (GSN) Funding Regulations for 2017-18 2.Principals and Vice-Principals Extension Agreement 2018-2020 and Amendment to the 2014-18 Memorandum of Settlement 3.Adjustments for Non-Union Staff 4.Fees For Central Bargaining for the 2017-2018 School Board Fiscal Year Regulation](./B10_EN.PDF)
-- [Plan to Strengthen Rural and Northern Education](./B09_EN.pdf)
-- [Grants for Student Needs (GSN) 2017-18 - Capital Addendum](./B08_EN.pdf)
-- [Request for Capital Priorities Project Funding Submissions](./B07_EN.pdf)
-- [Request for Early Years Capital Program (EYCP) Funding Submissions](./B06_EN.pdf)
-- [Broader public sector executive compensation and the provision of subsidized post-retirement benefits](./B05_EN.pdf)
-- [Letter from Minister Sandals - Broader Public Sector Executive Compensation Framework Regulation Requirements](./B05_attach_EN.pdf)
-- [Grants for Student Needs (GSN) for 2017 - 18](./B04_EN.pdf)
-- [2017-18 School Year Education Programs - Other (EPO) Funding](./B03_EN.pdf)
-- [2017 Proportions of Enrolment for purposes of Education Act, subsections 238(2) and 257.8(3)](./B02_EN.pdf)
-- [Table A](./B02_Attach_EN.pdf)
-- [BPS Executive Compensation Framework - approval of non-Canadian public/BPS comparators form and compliance directive posted online](./B%2001_EN_AODA.pdf)
 - [Benefits Trusts Transition Update #2](./SB35_EN.pdf)
 - [Letter Template](./SB35_attach_EN.pdf)
 - [School Level Data Verification - 2017-18 Financial Statements and 2018-19 Estimates/Revised Estimates](./SB34_EN.pdf)
@@ -54,7 +34,7 @@ Below is a list of memos available in this folder:
 - [Renewal & Greenhouse Gas Reduction Funding for the 2017-18 School Year](./SB08_EN.pdf)
 - [Reporting Capital Expenditures for the 2017 March Report](./SB07_EN.pdf)
 - [March 31, 2017 Financial Reporting Requirements](./SB06_EN.pdf)
-- [Employee Life and Health Trusts (ELHT) - Wave 4 and 5 Update](./SB05_EN.PDF)
+- [Employee Life and Health Trusts (ELHT) - Wave 4 and5 Update](./SB05_EN.PDF)
 - [Regulatory Amendments to Ontario Regulation 243/07 under the Safe Drinking Water Act](./SB04_EN.pdf)
 - [2) Community Hubs - Minor Retrofits and Accessibility](./SB03_EN.pdf)
 - [Employee Life and Health Trust (ELHT) - Implementation and Wave Update](./SB02_EN.PDF)

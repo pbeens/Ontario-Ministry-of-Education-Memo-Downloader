@@ -1,30 +1,7 @@
-# Memos for SB2018
+# Memos in SB2018
 
-Below is a list of memos available in this folder:
+Below is the list of memos in this folder:
 
-- [Updates on the Greenhouse Gas Reduction Funding (GGRF) and Renewal Reporting and Accountability Requirements](./B17_EN.pdf)
-- [In-year amendments to education funding regulations and O. Reg. 357/06](./B16_EN.pdf)
-- [Temporary Cap on Education Development Charge Rates](./B15_EN.pdf)
-- [Update: Education Funding for 2018 -19](./B14_EN.pdf)
-- [Next steps regarding the wind-down of the Greenhouse Gas Reduction Funding (GGRF) program](./B13_EN.pdf)
-- [Cancellation of Greenhouse Gas Reduction Funding (GGRF)](./B12_EN.PDF)
-- [Capital Funding for the 2018-19 School Year](./B11_EN.PDF)
-- [Final Pupil Accommodation Review Guideline and Updates on Integrated Planning and Supports for Urban Education](./B10_EN.PDF)
-- [Final Revised Pupil Accommodation Review Guideline](./B10_attach_EN.pdf)
-- [2018 Proportions of Enrolment for purposes of Education Act, subsections 238(2) and 257.8(3)](./B09_EN.pdf)
-- [Table A](./B09_attach_EN.pdf)
-- [Non-unionized Education Workers](./B08_EN.pdf)
-- [218-19 School Year Education Programs - Other (EPO) Funding](./B07_EN.pdf)
-- [Appendix A - 2018-19 School Year EPO Funding Allocations](./B07_attach_EN.pdf)
-- [Grants for Student Needs (GSN) for 2018-19](./B06_EN.pdf)
-- [Employment Insurance (EI) Waiting Period and Supplementary Employment Benefits](./B05_EN.pdf)
-- [Update on the School Bus Driver Retention Bonus Program](./B04_EN.PDF)
-- [Capital Priorities - New Reporting and Accountability Requirements](./B03_EN.pdf)
-- [Appendix A - Sample School Board Capital Attestation Form](./B03_attach1_EN.pdf)
-- [Appendix B - List of Ministry Capital Analysts](./B03_attach2_EN.pdf)
-- [Draft Revised Pupil Accommodation Review Guideline and Community Planning and Partnerships Guideline Updates](./B02_EN.pdf)
-- [Draft Revised Pupil Accommodation Review Guideline](./B02_attach_EN.PDF)
-- [In-year amendments to education funding regulations for the 2016-17 and 2017-18 school years](./2018_B01_EN%20-%20FINAL%20-%20AODA.PDF)
 - [2017-18 Financial Statements Forms for School Authorities (Isolate Boards)](./SB22_EN.pdf)
 - [2018-19 Estimates Forms for School Authorities (Isolate Boards)](./SB21_EN.pdf)
 - [2017-18 Financial Statements Forms for Section 68 School Authorities](./SB20__EN.pdf)

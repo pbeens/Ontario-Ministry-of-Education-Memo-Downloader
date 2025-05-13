@@ -1,6 +1,6 @@
-# Memos for B2018
+# Memos in B2018
 
-Below is a list of memos available in this folder:
+Below is the list of memos in this folder:
 
 - [Updates on the Greenhouse Gas Reduction Funding (GGRF) and Renewal Reporting and Accountability Requirements](./B17_EN.pdf)
 - [In-year amendments to education funding regulations and O. Reg. 357/06](./B16_EN.pdf)
@@ -25,25 +25,3 @@ Below is a list of memos available in this folder:
 - [Draft Revised Pupil Accommodation Review Guideline and Community Planning and Partnerships Guideline Updates](./B02_EN.pdf)
 - [Draft Revised Pupil Accommodation Review Guideline](./B02_attach_EN.PDF)
 - [In-year amendments to education funding regulations for the 2016-17 and 2017-18 school years](./2018_B01_EN%20-%20FINAL%20-%20AODA.PDF)
-- [2017-18 Financial Statements Forms for School Authorities (Isolate Boards)](./SB22_EN.pdf)
-- [2018-19 Estimates Forms for School Authorities (Isolate Boards)](./SB21_EN.pdf)
-- [2017-18 Financial Statements Forms for Section 68 School Authorities](./SB20__EN.pdf)
-- [Cash Management Strategy - Proceeds of Disposition](./SB19_EN.pdf)
-- [2018-19 Revised Estimates (DSB)](./SB18_EN.pdf)
-- [District School Board Enrolment Projections for 2019-20 to 2022-23](./SB17-EN.pdf)
-- [2017-18 Financial Statements (DSB)](./SB16_EN.PDF)
-- [2017-18 Student Transportation Report](./SB15_EN.pdf)
-- [Elementary Class size Reporting for 2018-19](./SB14_EN.pdf)
-- [2018-19 Funding Updates and Estimate Forms for Section 68 School Authorities](./SB13_EN.pdf)
-- [Implementation matters regarding non-union employees' benefits plan](./SB12_EN.pdf)
-- [Memo Trade agreement Obligations under CFTA and CETA](./SB11_EN.pdf)
-- [Memo from J.Williams-Special Education Funding memorandum](./SB10%20EN.pdf)
-- [Grants for Student Needs (GSN) 2018-19, Supports and Updates](./SB09_EN.pdf)
-- [Clarification of Policies and Supporting Documentation to Confirm Pupil Residency and Eligibility Status](./SB08%20EN.pdf)
-- [2018-19 Enrolment Registers Instructions](./SB07%20EN.pdf)
-- [Funding for Online Incident Reporting](./SB06_EN.pdf)
-- [Cash Management Strategy](./SB05_EN.PDF)
-- [Student Transportation - Grants for Student Needs, 2018-19](./SB04_EN.pdf)
-- [March 31, 2018 Financial Reporting Requirements](./SB03_EN.pdf)
-- [Ontario Active School Travel Project](./SB02_EN.pdf)
-- [Forthcoming Capital Expenditure Reporting Deadlines](./SB01_EN.pdf)

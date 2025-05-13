@@ -1,28 +1,7 @@
-# Memos for SB2024
+# Memos in SB2024
 
-Below is a list of memos available in this folder:
+Below is the list of memos in this folder:
 
-- [Public Sector Accounting Board (PSAB)](./B05_Attach_1_EN.pdf)
-- [Amendments to Core Education Funding (Core Ed) and Related Regulations](./B16_EN.pdf)
-- [School Ventilation Guidance and Public Reporting of Renewal Projects](./B15_EN.pdf)
-- [Additional Funding for Bill 124 Monetary Resolution](./B14_EN.pdf)
-- [2024-25 Core Education Funding (Core Ed) and Related Regulations](./B13_EN.pdf)
-- [Menstrual Equity Initiative - Continuing to Enhance Student Access to Free Menstrual Products in Ontario Schools](./B12_EN.pdf)
-- [Memos/B2024/B12_Attach1_EN.pdf](./B12_Attach1_EN.pdf)
-- [les-Lége](./B12_Attach1_FR.pdf)
-- [Launch of 2024-25 Capital Priorities Program](./B11_EN.pdf)
-- [Revised Time Limits for Renewal Funding](./B10_EN.pdf)
-- [2024-25 Math and Literacy Supports](./B09_EN.pdf)
-- [Capital funding for the 2024-25 school year](./B08_EN.pdf)
-- [Education Capital Policies and Programs Manual](./B08_Attach1_EN.pdf)
-- [Student transportation-Core Education Funding 2024-25](./B07_EN.pdf)
-- [Responsive Education Programs (formerly Priorities and Partnerships Funding)](./B06_EN.pdf)
-- [Appendix A - 2024-25 REP Funding Allocations](./B06_Attach1_EN.pdf)
-- [2024-25 Core Education Funding formerly-Grants for Student Needs](./B05_EN.pdf)
-- [Technical Guide for School Boards, 2024-25 (April 2024](./B05_Attach1_EN.pdf)
-- [Amendments to Grants for Student Needs (GSN) Monetary Resolution Bill 124](./B04_EN.pdf)
-- [2024 - Proportions of Enrolment for purposes of the Education Act, subsections 238(2) and 257.8(3)](./B03_EN.pdf)
-- [Amendments to Grants for Student Needs (GSN) and Related Regulations](./B01_EN.pdf)
 - [2023-24 Financial Statements for School Authorities (Isolate Boards)](./SB26_EN.pdf)
 - [2024-2025 Annual Data Verification for Schools](./SB25_EN.pdf)
 - [2023-24 Financial Statements Forms for Section 68 School Authorities](./SB24_EN.pdf)

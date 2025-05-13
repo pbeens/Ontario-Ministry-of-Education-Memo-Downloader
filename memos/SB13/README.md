@@ -1,6 +1,6 @@
-# Memos for SB13
+# Memos in SB13
 
-Below is a list of memos available in this folder:
+Below is the list of memos in this folder:
 
 - [Trade Agreement Information](./SB-13%20EN.PDF)
 - [Trade News - Procurement Chapter](./SB-13%20Attachment%20EN.pdf)

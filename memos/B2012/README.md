@@ -1,8 +1,8 @@
-# Memos for B2012
+# Memos in B2012
 
-Below is a list of memos available in this folder:
+Below is the list of memos in this folder:
 
-- [Transition Regulation - New Sick leave and Short Term Disability Plan](./B15_EN_AODA.pdf)
+- [Transition Regulation - New Sick leave and ShortTerm Disability Plan](./B15_EN_AODA.pdf)
 - [Implementation of the Putting Students First Act and amendments to education funding regulations](./B14_EN_AODA.pdf)
 - [Funding Framework for Local Bargaining](./B13_EN_AODA.pdf)
 - [Education funding regulations for 2012-13](./B12-EN_AODA.pdf)

@@ -1,33 +1,7 @@
-# Memos for SB2021
+# Memos in SB2021
 
-Below is a list of memos available in this folder:
+Below is the list of memos in this folder:
 
-- [Enhanced Student Access to Free Menstrual Products in Ontario Schools](./B21_EN.pdf)
-- [Appendix A: 2021-22 Product allocations to School boards, Authorities and Consortium](./B21_Attach1_EN.pdf)
-- [District School Board Preliminary Enrolment for 2021-22 and Enrolment Projections for 2022-23](./B20_EN.pdf)
-- [Amendments to Restricted Purpose Revenues Regulation and the new Fees for Central Bargaining Regulation](./B19_EN.pdf)
-- [COVID-19 Resilience Infrastructure Stream: Education Related (CVRIS-EDU) Projects - Updates and Next Steps](./B18_EN.pdf)
-- [2021-22 Grants for Student Needs (GSN) and Related Regulations](./B17_EN.pdf)
-- [Standardized Ventilation Measures Report](./B16_EN.pdf)
-- [Update on the Student Transportation Review](./B15_EN.pdf)
-- [School Ventilation](./B14_EN.pdf)
-- [School Bus Driver Retention Pilot Program (DRP) in the 2021-22 School Year](./B13_EN.pdf)
-- [COVID-19 Resilience Infrastructure Stream: Education Related (CVRIS-EDU) Projects - Approvals](./B12_EN.pdf)
-- [Learning Recovery and Renewal](./B11_EN.pdf)
-- [2021-22 Priorities and Partnerships Funding (PPF)](./B10_EN.pdf)
-- [Appendix A - 2021-22 Priorities and Partnerships Funding Allocations](./B10_attach1_EN.pdf)
-- [Appendix B - Transfer Payment Ontario (TPON) System](./B10_attach2_EN.pdf)
-- [Capital Funding for the 2021-22 School Year](./B09_EN.pdf)
-- [2021-22 Grants for Student Needs Funding](./B08_EN.pdf)
-- [Planning for the 2021-22 School Year](./B07_EN.pdf)
-- [Next Steps for Climate Action Incentive Fund (CAIF) Projects](./B06_EN.pdf)
-- [Launch of 2021-22 Capital Priorities Program including Child Care Capital Funding](./B05_EN.pdf)
-- [2021-22 School Year](./B04_EN.pdf)
-- [Amendments to the Grants for Student Needs (GSN) Regulations for 2020-21, 2019-20 and 2018-19](./B03_EN.pdf)
-- [2021 Proportions of Enrolment for purposes of the Education Act, subsections 238(2) and 257.8(3)](./B02_EN.pdf)
-- [Federal Safe Return to Class Fund and Expanded Targeted Testing in Schools](./B01_EN.pdf)
-- [Appendix A: Additional Funding for Ventilation, Health and Safety and Student Transportation](./B01_attach1_EN.pdf)
-- [Appendix B: Additional Funding for Technological Devices](./B01_attach2_EN.pdf)
 - [2020-21 Financial Statements Forms for School Authorities (Isolate Boards)](./SB27_EN.pdf)
 - [Update on Student Transportation Routing Simulation](./SB26_EN.pdf)
 - [Student Transportation Reference Standard Guidelines](./SB26_Attach1_EN.pdf)
