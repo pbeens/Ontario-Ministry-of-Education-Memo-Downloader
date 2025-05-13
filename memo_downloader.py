@@ -5,6 +5,7 @@ Ontario Ministry of Education Memo Downloader
 import re  # for extracting years from folder names
 from bs4 import BeautifulSoup
 import urllib.request
+from urllib.parse import urljoin
 import urllib
 import os
 import csv
@@ -40,7 +41,7 @@ for link in memo_category_list:
         if len(url_text) < 2:  # catch the URLs with no text
             url_text = url_url
         if 'pdf' in url_url.lower():  # only PDF files
-            pdf_url = url_base + '/' + url_url
+            pdf_url = urljoin(url_base, url_url)
             pdf_dict[pdf_url] = url_text
 
 # Read in existing memos from CSV
